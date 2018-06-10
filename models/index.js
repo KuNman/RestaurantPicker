@@ -1,6 +1,8 @@
 var mongoose = require('mongoose');
+require('dotenv').config()
+
 mongoose.set('debug', true);
-mongoose.connect('mongodb://172.17.0.1:27017/picker-api');
+mongoose.connect('mongodb://'+process.env.DOCKER_IP+':'+process.env.DB_PORT+'/picker-api');
 
 mongoose.Promise = Promise;
 

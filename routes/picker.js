@@ -12,4 +12,14 @@ router.get('/', function(req, res) {
   })
 })
 
+router.post('/', function(req, res) {
+  db.Picker.create(req.body)
+  .then(function(newPick) {
+    res.status(201).json(newPick);
+  })
+  .catch(function(error) {
+    res.send(error);
+  })
+})
+
 module.exports = router;

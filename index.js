@@ -1,19 +1,20 @@
+require('dotenv').config()
+
+
 var express = require('express'),
     app = express();
-
 var pickerRoutes = require('./routes/picker');
+var bodyParser = require('body-parser');
 
-require('dotenv').config()
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended:true}));
 
 app.get('/', function(req,res) {
   res.send('Root');
 })
 
-<<<<<<< HEAD
 app.use('/api/picker', pickerRoutes);
 
-=======
->>>>>>> parent of 591f3b0... Test gitingore
-app.listen(process.env.PORT, function() {
+app.listen(process.env.APP_PORT, function() {
   console.log('Build done!')
 })
