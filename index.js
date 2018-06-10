@@ -7,6 +7,10 @@ app.get('/', function(req,res) {
   res.send('Hello world!');
 })
 
+app.post('/s', function(req,res) {
+  res.send('Hello world!');
+})
+
 app.listen(process.env.PORT, function() {
   console.log('Build done!')
 })
