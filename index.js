@@ -1,15 +1,15 @@
 var express = require('express'),
     app = express();
 
+var pickerRoutes = require('./routes/picker');
+
 require('dotenv').config()
 
 app.get('/', function(req,res) {
-  res.send('Hello world!');
+  res.send('Root');
 })
 
-app.post('/s', function(req,res) {
-  res.send('Hello world!');
-})
+app.use('/api/picker', pickerRoutes);
 
 app.listen(process.env.PORT, function() {
   console.log('Build done!')
