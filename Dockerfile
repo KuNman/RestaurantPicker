@@ -1,10 +1,13 @@
 FROM node:latest
 
-RUN mkdir /app
 WORKDIR /app
-COPY package.json /app/
 
+RUN npm install -g nodemon
+
+COPY package.json /app/package.json
 RUN npm install
-RUN npm install dotenv
+RUN mv /app/node_modules /node_modules
 
-CMD [ "npm", "start" ]
+COPY . /app
+
+CMD ["nodemon", "start"]
